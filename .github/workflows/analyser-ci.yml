@@ -38,7 +38,7 @@ jobs:
 
       - name: Static type checking with Mypy
         run: |
-          mypy ./src/
+          cd src && mypy . --explicit-package-bases
 
   Run-tests:
     runs-on: ubuntu-latest
@@ -59,4 +59,4 @@ jobs:
 
       - name: Run unittests
         run: |
-          python -m unittest src/test.py
+          cd src/ && python -m unittest test.py
