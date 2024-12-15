@@ -11,7 +11,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from json import JSONDecodeError
 from optparse import OptionParser
 
-import src.scoring as scoring
+import scoring
 
 SALT = "Otus"
 ADMIN_LOGIN = "admin"

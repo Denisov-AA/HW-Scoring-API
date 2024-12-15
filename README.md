@@ -3,10 +3,10 @@ Homework for OTUS Python Professional course
 
 Run server:
 ```commandline
-python src/log_analyser.py
+cd src/ && python api.py
 ```
 Run tests:
 ```commandline
-python -m unittest tests/test_log_analyser.py
+cd src/ && python -m unittest tests.py
 ```
 
