@@ -1,0 +1,50 @@
+name: Scoring CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Code-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: ./.github/actions/Set-up-Python
+
+      - name: Install dependencies
+        uses: ./.github/actions/Install-Dependencies
+
+      - name: Lint with Ruff
+        run: |
+          ruff check
+
+      - name: Format with Black
+        run: |
+          black --check .
+
+      - name: Sort imports with Isort
+        run: |
+          isort --check-only .
+
+      - name: Static type checking with Mypy
+        run: |
+          mypy ./src/
+
+  Run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: ./.github/actions/Set-up-Python
+
+      - name: Install dependencies
+        uses: ./.github/actions/Install-Dependencies
+
+      - name: Run unittests
+        run: |
+          python -m unittest tests/test.py
