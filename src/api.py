@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import re
-import json
 import datetime
-import logging
 import hashlib
+import json
+import logging
+import re
 import uuid
-from optparse import OptionParser
-from json import JSONDecodeError
 from http.server import BaseHTTPRequestHandler, HTTPServer
+from json import JSONDecodeError
+from optparse import OptionParser
 
 import src.scoring as scoring
 
